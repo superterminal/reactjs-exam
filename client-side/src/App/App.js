@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Register from '../Register/Register';
 
 import withAuth from '../shared/withAuth/withAuth';
+import Details from '../shared/SearchBar/Recipe/Details/Details';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route path='/login' component={Login}/>
         <Route path='/register' component={Register} />
+        <Route path='/recipe/:uri_id' component={withAuth(Details)} />
         {/* <Route path='/test' component={withAuth(Login)} /> */}
       </Switch>
     </div>
