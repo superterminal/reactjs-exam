@@ -1,21 +1,23 @@
 import React from 'react';
 import './Footer.css';
+import Link from '../shared/Link/Link';
 
-function Footer() {
-    return (
-      <div className="copyrights">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-7">
-              <p>&copy; 2017 Landy.com. All rights reserved.                        </p>
-            </div>
-            <div className="col-md-5 text-right">
-              <p>Template By <a href="https://bootstrapious.com/" className="external">Bootstrapious</a>  </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-}
+function Footer({ isLogged }) {
+  return <nav className="Footer">
+    <ul>
+      <Link to="/">Posts</Link>
+
+      <Link to="/">Posts</Link>
+      <Link to="/">Posts</Link>
+      <Link to="/">Posts</Link>
+      
+
+      {/* {isLogged && <Link to="/create-posts">New Post</Link>}
+      {isLogged && <Link to="/profile">Profile</Link>}
+      {!isLogged && <Link to="/register">Register</Link>}
+      {!isLogged && <Link to="/login">Login</Link>} */}
+    </ul>
+  </nav>;
+};
 
 export default Footer;
