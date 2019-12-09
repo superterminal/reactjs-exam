@@ -1,16 +1,17 @@
 import React from 'react';
 import './Navbar.css';
+import Link from '../shared/Link/Link';
 
 function Navbar() {
     return (
       <header className="header">
-      <nav className="navbar navbar-expand-lg fixed-top"><a href="index.html" className="navbar-brand">food.io</a>
+      <nav className="navbar navbar-expand-lg fixed-top"><Link to="/" className="navbar-brand">food.io</Link>
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" className="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" className="collapse navbar-collapse">
           <ul className="navbar-nav ml-auto align-items-start align-items-lg-center">
-            <li className="nav-item"><a href="#about-us" className="nav-link link-scroll">Profile</a></li>
-            <li className="nav-item"><a href="#about-us" className="nav-link link-scroll">Login</a></li>
-            <li className="nav-item"><a href="#about-us" className="nav-link link-scroll">Register</a></li>
+            <Link to="/profile" className="nav-link link-scroll">Profile</Link>
+            <Link to="/login" className="nav-link link-scroll">Login</Link>
+            <Link to="/register" className="nav-link link-scroll">Register</Link>
           </ul>
         </div>
       </nav>
