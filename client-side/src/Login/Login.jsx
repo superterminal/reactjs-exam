@@ -29,6 +29,7 @@ class Login extends React.Component {
             credentials: 'include'
         }).then(res => {
             if(res.status === 200) {
+                this.props.setLoggedIn(true);
                 this.props.history.push('/');
             } else {
                 const error = new Error(res.error);
