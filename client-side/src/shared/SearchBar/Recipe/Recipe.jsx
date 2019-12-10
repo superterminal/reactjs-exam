@@ -4,15 +4,17 @@ import Link from '../../Link/Link';
 
 function Recipe(recipe) {
     recipe = recipe.recipe;
-    console.log(recipe);
+    let imageUrl = 'https://spoonacular.com/recipeImages/' + recipe.image;
     return (
         <div className="card">
-            <img src={recipe.image} alt="Denim Jeans"/>
-            <h1>{recipe.label}</h1>
-            <p>Calories: {recipe.calories}</p>
+            <img src={imageUrl} />
+            <h2>{recipe.title}</h2>
+            <p>Ready in: {recipe.readyInMinutes} minutes</p>
             <Link to={{
-                    pathname: `/recipe/${recipe.uri.split('#')[1]}`,
-                    state: { recipe: { ...recipe } }
+                    pathname: `/recipe/${recipe.id}`,
+                    state: { 
+                        recipe: { ...recipe }
+                    }
                 }}>Go to recipe</Link>
 
         </div>
