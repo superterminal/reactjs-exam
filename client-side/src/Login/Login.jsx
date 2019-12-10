@@ -48,6 +48,7 @@ class Login extends React.Component {
                     <h1 className="h3 mb-3 font-weight-normal">Log in here</h1>
                     <label htmlFor="inputEmail" className="sr-only">Email address</label>
                     <input 
+                        name="username"
                         type="text" 
                         id="inputEmail" 
                         className="form-control" 
@@ -57,6 +58,7 @@ class Login extends React.Component {
                         autoFocus />
                     <label htmlFor="inputPassword" className="sr-only">Password</label>
                     <input 
+                        name="password"
                         type="password" 
                         id="inputPassword" 
                         className="form-control" 
