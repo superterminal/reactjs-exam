@@ -1,15 +1,14 @@
-const appId = process.env.REACT_APP_RECIPE_SEARCH_APP_ID;
-const appKey = process.env.REACT_APP_RECIPE_SEARCH_APP_KEY;
+const apiKey = process.env.REACT_APP_RECIPE_API_KEY;
 
 const recipeSearchService = {
     findByQuery: function (query) {
-      return fetch(`https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`, {
-        method: 'GET',
-        headers: {
-          'Content-type': 'application/json'
-        }
-      }).then(res => res.json());
-    },
+        return fetch(`https://api.spoonacular.com/recipes/search?query=${query}&number=10&apiKey=${apiKey} `, {
+          method: 'GET',
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(res => res.json());
+      },
   };
   
   export default recipeSearchService;
