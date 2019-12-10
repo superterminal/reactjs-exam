@@ -1,5 +1,6 @@
 .search {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .searchTerm, .searchButton { 
@@ -8,4 +9,10 @@
 
 .searchTerm {
   width: 400px;
+}
+
+.recipies{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

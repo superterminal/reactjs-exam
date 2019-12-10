@@ -3,64 +3,110 @@ import './Details.css';
 
 class Details extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.recipe = this.props.location.state.recipe;
+    }
+
     render() {
-        console.log(this.props.location.state.recipe)
         return (
-            <div class="container">
-                <div class="left-column">
-                    <img data-image="black" src="images/black.png" alt="" />
-                    <img data-image="blue" src="images/blue.png" alt="" />
-                    <img data-image="red" class="active" src="images/red.png" alt="" />
+            <div class='container product-details-page'>
+                <div class='row'>
+                    <div class="col-md-8">
+                        <div class="item"><img src={this.recipe.image} /></div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>{this.recipe.label}</h2>
+                        <h5>Product sub title</h5>
+                        <div class="price">
+                            <p>$ 1900.00 <del>$ 2000.00</del></p>
+                        </div>
+                        <hr/>
+                        <div class="product-info">
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">manufacturer:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="data"> Brand Name</p>
+                            </div>
+                            </div>
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">Materials:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="data"> Brand Name</p>
+                            </div>
+                            </div>
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">Availability:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="data"><i class="far fa-check-circle"></i> In stock</p>
+                            </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="product-info">
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">Favourites:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="data"><i class="far fa-heart"></i> Add to favourites</p>
+                            </div>
+                            </div>
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">Wishlist:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="data"><i class="far fa-eye"></i> Add to Watch list</p>
+                            </div>
+                            </div>
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">collection:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="data"><i class="far fa-star"></i> Add to collection</p>
+                            </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="product-info">
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">Available Colors:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="colors">
+                                <li class="red"> </li>
+                                <li class="blue active"> </li>
+                                <li class="green"> </li>
+                                <li class="yellow"> </li>
+                                </ul>
+                            </div>
+                            </div>
+                            <div class='row'>
+                            <div class="col-md-6">
+                                <p class="title">Wishlist:</p>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="sizes">
+                                <li><a href="#">S</a></li>
+                                <li class="active"><a href="#">M</a></li>
+                                <li><a href="#">L</a></li>
+                                <li><a href="#">XL</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
                 </div>
-                
-                <div class="right-column">
-                
-                    <div class="product-description">
-                    <span>Headphones</span>
-                    <h1>Beats EP</h1>
-                    <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
-                    </div>
-                
-                    <div class="product-configuration">
-                
-                    <div class="product-color">
-                        <span>Color</span>
-                
-                        <div class="color-choose">
-                        <div>
-                            <input data-image="red" type="radio" id="red" name="color" value="red" />
-                            <label for="red"><span></span></label>
-                        </div>
-                        <div>
-                            <input data-image="blue" type="radio" id="blue" name="color" value="blue" />
-                            <label for="blue"><span></span></label>
-                        </div>
-                        <div>
-                            <input data-image="black" type="radio" id="black" name="color" value="black" />
-                            <label for="black"><span></span></label>
-                        </div>
-                        </div>
-                
-                    </div>
-                
-                    <div class="cable-config">
-                        <span>Cable configuration</span>
-                
-                        <div class="cable-choose">
-                        <button>Straight</button>
-                        <button>Coiled</button>
-                        <button>Long-coiled</button>
-                        </div>
-                
-                        <a href="#">How to configurate your headphones</a>
-                    </div>
-                    </div>
-                
-                    <div class="product-price">
-                    <span>148$</span>
-                    <a href="#" class="cart-btn">Add to cart</a>
-                    </div>
-                </div>
+
             </div>
         )
     }

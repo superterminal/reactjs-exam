@@ -1,55 +1,70 @@
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px;
-    display: flex;
-  } 
-
-  .left-column {
-    width: 65%;
-    position: relative;
-  }
-   
-  .right-column {
-    width: 35%;
-    margin-top: 60px;
-  }
-
-  .left-column img {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: all 0.3s ease;
-  }
-   
-  .left-column img.active {
-    opacity: 1;
-  }
-  
-  .product-description {
-    border-bottom: 1px solid #E1E8EE;
-    margin-bottom: 20px;
-  }
-  .product-description span {
-    font-size: 12px;
-    color: #358ED7;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-  .product-description h1 {
-    font-weight: 300;
-    font-size: 52px;
-    color: #43484D;
-    letter-spacing: -2px;
-  }
-  .product-description p {
+.product-details-page {
+    padding: 100px 30px;
+}
+.product-details-page h2 {
+    font-weight: bold;
+}
+.product-details-page .price {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.product-details-page .price del {
+    font-weight: 100;
+    font-size: 17px;
+}
+.product-details-page .product-info {
+    text-align: left;
+}
+.product-details-page .product-info .title {
+    font-weight: bold;
     font-size: 16px;
-    font-weight: 300;
-    color: #86939E;
-    line-height: 24px;
-  }
-
-  
+    margin-right: 20px;
+}
+.product-details-page .product-info .data {
+    font-size: 16px;
+}
+.product-details-page .product-info .colors {
+    list-style: none;
+}
+.product-details-page .product-info .colors li {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+}
+.product-details-page .product-info .colors li.active {
+    border: 2px solid black;
+}
+.product-details-page .product-info .colors .red {
+    background-color: red;
+}
+.product-details-page .product-info .colors .blue {
+    background-color: blue;
+}
+.product-details-page .product-info .colors .green {
+    background-color: green;
+}
+.product-details-page .product-info .colors .yellow {
+    background-color: yellow;
+}
+.product-details-page .product-info .sizes {
+    list-style: none;
+}
+.product-details-page .product-info .sizes li {
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    background: BlanchedAlmond;
+    text-align: center;
+    border: 2px solid white;
+}
+.product-details-page .product-info .sizes li.active {
+    border: 2px solid black;
+}
+.product-details-page .product-info .sizes li a {
+    color: #333;
+}
