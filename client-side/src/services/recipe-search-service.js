@@ -9,6 +9,14 @@ const recipeSearchService = {
           }
         }).then(res => res.json());
       },
+      findRecipeById: function (id) {
+        return fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${apiKey} `, {
+          method: 'GET',
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(res => res.json());
+      }
   };
   
   export default recipeSearchService;
