@@ -2,6 +2,10 @@
     width: 520px;
 }
 
+#loader {
+    padding-top: 10em;
+}
+
 .product-details-page {
     padding: 100px 30px;
 }
