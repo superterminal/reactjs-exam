@@ -6,10 +6,10 @@ class Login extends React.Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            error: ''
         };
     } 
-
 
     handleChange = e => {
         const { value, name } = e.target;
@@ -32,13 +32,10 @@ class Login extends React.Component {
                 this.props.setLoggedIn(true);
                 this.props.history.push('/');
             } else {
-                const error = new Error(res.error);
-                console.log(error);
-                throw error;
+                throw new Error(res.statusText);
             }
         }).catch(err => {
-            console.log(err);
-            alert('Error loggin in please try again!');
+            this.setState({ error: 'Wrong username or password'})
         })
     }
 
@@ -47,7 +44,8 @@ class Login extends React.Component {
             <div className="text-center">
                 <form className="form-signin" onSubmit={this.onSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal">Log in here</h1>
-                    <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                    {this.state.error}
+                    <label htmlFor="inputEmail" className="sr-only">Username</label>
                     <input 
                         name="username"
                         type="text" 
