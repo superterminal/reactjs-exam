@@ -1,3 +1,7 @@
+.item > img {
+    width: 520px;
+}
+
 .product-details-page {
     padding: 100px 30px;
 }
