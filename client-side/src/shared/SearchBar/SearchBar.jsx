@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 import Recipe from './Recipe/Recipe';
+import Loader from '../Loader/Loader';
 
 import recipeSearchService from '../../services/recipe-search-service';
 
@@ -38,18 +39,18 @@ class SearchBar extends React.Component {
         recipeSearchService.findByQuery(query).then(res => {
           res = res.results;
           res.length === 0 ? 
-            this.setState({ result: {}, message: 'The recipe was not found' }) 
-            : this.setState({ result: res });
+            this.setState({ result: {}, message: 'The recipe was not found', loading: false }) 
+            : this.setState({ result: res, loading: false });
         }).catch(err => console.error(err));
       })
     }
   }
+
   
   renderSearchResult = () => {
     const { result } = this.state;
     if (Object.keys(result).length) {
-      console.log(result);
-      return result === undefined ? <div>Loading...</div> : (result.map(result => <Recipe key={result.id} recipe={result}/>))
+      return (result.map(result => <Recipe key={result.id} recipe={result}/>))
     }
   }
 
@@ -62,9 +63,10 @@ class SearchBar extends React.Component {
               Search
           </button>
         </form>
-        <div className="recipies">        
+        {this.state.message ? <h2>{this.state.message}</h2> : null}
+        {this.state.loading ? <Loader /> : <div className="recipies">        
           {this.renderSearchResult()} 
-        </div>
+        </div>}
       </div>
   );
   }  
