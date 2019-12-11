@@ -12,6 +12,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import withAuth from '../shared/withAuth/withAuth';
 import Details from '../shared/SearchBar/Recipe/Details/Details';
+import ProductDetails from '../shared/SearchBar/Recipe/ProductDetails/ProductDetails';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/register' component={Register} />
         <Route path='/logout' render={(props) => <Logout {...{ setLoggedIn, ...props }} /> } />
         <Route path='/recipe/:uri_id' component={withAuth(Details)} />
+        <Route path='/product/:product_id' component={withAuth(ProductDetails)}/>
       </Switch>
     </div>
     </BrowserRouter>
