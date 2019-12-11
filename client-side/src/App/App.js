@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import withAuth from '../shared/withAuth/withAuth';
 import Details from '../shared/SearchBar/Recipe/Details/Details';
 import ProductDetails from '../shared/SearchBar/Recipe/ProductDetails/ProductDetails';
+import AdvancedSearch from '../AdvancedSearch/AdvancedSearch';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -28,14 +29,16 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="App">
+      <div className="App">
       <Navbar {...{ loggedIn }}/>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path='/login' render={(props) => <Login {...{ setLoggedIn, ...props }} /> } />
         <Route path='/register' component={Register} />
         <Route path='/logout' render={(props) => <Logout {...{ setLoggedIn, ...props }} /> } />
-        <Route path='/recipe/:uri_id' component={withAuth(Details)} />
+        <Route path='/advanced-search' component={withAuth(AdvancedSearch)} />
+        {/* <Route path='/my-recipies' component={withAuth(MyRecipies)} /> */}
+        <Route path='/recipe/:id' component={withAuth(Details)} />
         <Route path='/product/:product_id' component={withAuth(ProductDetails)}/>
       </Switch>
     </div>
