@@ -2,7 +2,6 @@ import React from 'react';
 import './SearchBar.css';
 import Recipe from './Recipe/Recipe';
 import Loader from '../Loader/Loader';
-
 import recipeSearchService from '../../services/recipe-search-service';
 
 class SearchBar extends React.Component {
