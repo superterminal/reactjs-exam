@@ -6,6 +6,37 @@
     padding-top: 10em;
 }
 
+#recipe {
+    text-align: center;
+}
+
+#recipe > ul {
+    display: flex;
+    list-style: none;
+}
+
+#recipe > ul > li {
+    
+    float: left;
+    padding: 2em;
+    text-align: center;
+}
+
+#ingredients {
+    display: flex;
+    list-style: none;
+}
+
+#ingredients > li {
+    float: left;
+    padding: 2em;
+    text-align: center;
+}
+
+#ingredients > li > img {
+    padding-top: 1em;
+}
+
 .product-details-page {
     padding: 100px 30px;
 }

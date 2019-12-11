@@ -7,7 +7,7 @@ function Recipe(recipe) {
     let imageUrl = 'https://spoonacular.com/recipeImages/' + recipe.image;
     return (
         <div className="card">
-            <img src={imageUrl} />
+            <img src={imageUrl} alt="recipe"/>
             <h2>{recipe.title}</h2>
             <p>Ready in: {recipe.readyInMinutes} minutes</p>
             <Link to={{
