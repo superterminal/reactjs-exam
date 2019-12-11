@@ -26,7 +26,6 @@ class Details extends React.Component {
 
     render() {
         const { recipe } = this.state;
-        console.log(recipe);
 
         let ingrdientImageUrl = 'https://spoonacular.com/cdn/ingredients_100x100/';
 
@@ -108,34 +107,33 @@ class Details extends React.Component {
                     </div>
             </div>
             <div className="row">
-
-                    <ul className="data" id="ingredients">
-                        {recipe.extendedIngredients.map(ing => 
-                            <li key={ing.id}>
-                                <Link to={{
-                                    pathname: `/product/${ing.id}`,
-                                    state: {
-                                        productId: ing.id,
-                                        recipeId: recipe.id
-                                    }
-                                }}>
-                                {ing.original}</Link> 
-                                <img src={ingrdientImageUrl + ing.image} alt="ingredient"/>
-                            </li>
-                        )}
-                    </ul>
+                <ul className="data" id="ingredients">
+                    {recipe.extendedIngredients.map(ing => 
+                        <li key={ing.id}>
+                            <Link to={{
+                                pathname: `/product/${ing.id}`,
+                                state: {
+                                    productId: ing.id,
+                                    recipeId: recipe.id
+                                }
+                            }}>
+                            {ing.original}</Link> 
+                            <img src={ingrdientImageUrl + ing.image} alt="ingredient"/>
+                        </li>
+                    )}
+                </ul>
             </div>
             <div id="recipe">
                 <h2>How to cook:</h2><br/>
-                    {recipe.analyzedInstructions[0].steps.map(step => 
-                        <div key={step.number}>
-                            <h2>Step {step.number}</h2>
-                            <h3>Ingredients for this step: </h3>
-                            <ul className="data" id="ingredients">
-                                {step.ingredients.map(ing => <li key={ing.id}>{ing.name} <img src={ingrdientImageUrl + ing.image} alt="ingredient"/></li>)}
-                            </ul>
-                            <p>{step.step}</p>
-                        </div>)}
+                {recipe.analyzedInstructions.length !== 0 ? recipe.analyzedInstructions[0].steps.map(step => 
+                    <div key={step.number}>
+                        <h2>Step {step.number}</h2>
+                        <h3>Ingredients for this step: </h3>
+                        <ul className="data" id="ingredients">
+                            {step.ingredients.map(ing => <li key={ing.id}>{ing.name} <img src={ingrdientImageUrl + ing.image} alt="ingredient"/></li>)}
+                        </ul>
+                        <p>{step.step}</p>
+                </div>) : <h3>No steps available :/</h3>}
             </div>
         </div>
         }

@@ -3,18 +3,15 @@ import './ProductDetails.css';
 
 import Loader from '../../../Loader/Loader';
 import ProductService from '../../../../services/product-seach-service';
-import Link from '../../../Link/Link';
 
 class ProductDetails extends React.Component {
 
     constructor(props) {
         super(props);
         this.productId = this.props.location.state.productId;
-        this.recipeId = this.props.location.state.recipeId;
         this.state = {
             product: {},
             productId: 0,
-            recipeId: 0,
             loading: true,
         };
     }
@@ -26,8 +23,6 @@ class ProductDetails extends React.Component {
                 loading: false
             }));
     }
-
-
 
     render() {
         const { product } = this.state;
@@ -47,12 +42,6 @@ class ProductDetails extends React.Component {
                 <div className="col-md-6">
                     <h2>Product name: {product.name}</h2>
                     <h3>Consistency: {product.consistency}</h3>
-                    {/* <Link to={{
-                        pathname: `/recipe/${this.recipeId}`,
-                        state: {
-                            recipeId: this.recipeId
-                        }
-                        }}>Back to recipe</Link> */}
                 </div>
             </div>        
             </div>
