@@ -1,0 +1,24 @@
+.advancedSearch {
+    background-image: url("background.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: 5em;
+    padding-bottom: 15em;
+    /* padding-bottom: 15em; */
+}
+
+.cover-heading {
+    text-align: center;
+}
+
+.advancedSearch > h1 {
+    text-align: center;
+    padding-top: 1.5em;
+}
+
+.advancedSearch > h4 {
+    text-align: center;
+}
