@@ -1,0 +1,109 @@
+.item > img {
+    width: 520px;
+}
+
+#loader {
+    padding-top: 10em;
+}
+
+#recipe {
+    text-align: center;
+}
+
+#recipe > ul {
+    display: flex;
+    list-style: none;
+}
+
+#recipe > ul > li {
+    
+    float: left;
+    padding: 2em;
+    text-align: center;
+}
+
+#ingredients {
+    display: flex;
+    list-style: none;
+}
+
+#ingredients > li {
+    float: left;
+    padding: 2em;
+    text-align: center;
+}
+
+#ingredients > li > img {
+    padding-top: 1em;
+}
+
+.product-details-page {
+    padding: 100px 30px;
+}
+.product-details-page h2 {
+    font-weight: bold;
+}
+.product-details-page .price {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.product-details-page .price del {
+    font-weight: 100;
+    font-size: 17px;
+}
+.product-details-page .product-info {
+    text-align: left;
+}
+.product-details-page .product-info .title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.product-details-page .product-info .data {
+    font-size: 16px;
+}
+.product-details-page .product-info .colors {
+    list-style: none;
+}
+.product-details-page .product-info .colors li {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+}
+.product-details-page .product-info .colors li.active {
+    border: 2px solid black;
+}
+.product-details-page .product-info .colors .red {
+    background-color: red;
+}
+.product-details-page .product-info .colors .blue {
+    background-color: blue;
+}
+.product-details-page .product-info .colors .green {
+    background-color: green;
+}
+.product-details-page .product-info .colors .yellow {
+    background-color: yellow;
+}
+.product-details-page .product-info .sizes {
+    list-style: none;
+}
+.product-details-page .product-info .sizes li {
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    background: BlanchedAlmond;
+    text-align: center;
+    border: 2px solid white;
+}
+.product-details-page .product-info .sizes li.active {
+    border: 2px solid black;
+}
+.product-details-page .product-info .sizes li a {
+    color: #333;
+}
