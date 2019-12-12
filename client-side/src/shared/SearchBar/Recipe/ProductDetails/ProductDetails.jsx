@@ -8,43 +8,42 @@ class ProductDetails extends React.Component {
 
     constructor(props) {
         super(props);
-        this.productId = this.props.location.state.productId;
+        this.ingredient= this.props.location.state.ingredient;
         this.state = {
             product: {},
-            productId: 0,
             loading: true,
         };
     }
 
     componentDidMount() {
-        ProductService.findProductById(this.productId)
+        ProductService.findProductById(this.ingredient.id)
             .then(res => this.setState({
-                product: res,
+                ingredient: res,
                 loading: false
             }));
     }
 
     render() {
-        const { product } = this.state;
-
+        const { ingredient } = this.state;
         let ingredientImage = 'https://spoonacular.com/cdn/ingredients_500x500/';
 
         if (this.state.loading) {
             return <div className="row" id="loader">
                         <Loader />
-                    </div>
+                   </div>
         } else {
-            return <div className='container product-details-page'>
-            <div className='row'>
-                <div className="col-md-6">
-                    <div className="item"><img src={ingredientImage + product.image} alt="details"/></div>
-                </div>
-                <div className="col-md-6">
-                    <h2>Product name: {product.name}</h2>
-                    <h3>Consistency: {product.consistency}</h3>
-                </div>
-            </div>        
-            </div>
+            return (
+                <div className='container product-details-page'>
+                    <div className='row'>
+                        <div className="col-md-6">
+                            <div className="item"><img src={ingredientImage + ingredient.image} alt="details"/></div>
+                        </div>
+                        <div className="col-md-6">
+                            <h2>Product name: {ingredient.name}</h2>
+                            <h3>Consistency: {ingredient.consistency}</h3>
+                        </div>
+                    </div>        
+            </div>)
         }
     }
     

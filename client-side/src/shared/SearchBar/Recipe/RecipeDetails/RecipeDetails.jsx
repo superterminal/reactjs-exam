@@ -1,11 +1,11 @@
 import React from 'react'
-import './Details.css';
+import './RecipeDetails.css';
 
 import recipeSearchService from '../../../../services/recipe-search-service';
 import Loader from '../../../Loader/Loader';
 import Link from '../../../Link/Link';
 
-class Details extends React.Component {
+class RecipeDetails extends React.Component {
 
     constructor(props) {
         super(props);
@@ -108,18 +108,19 @@ class Details extends React.Component {
             </div>
             <div className="row">
                 <ul className="data" id="ingredients">
+                    {console.log(recipe.extendedIngredients)}
                     {recipe.extendedIngredients.map(ing => 
-                        <li key={ing.id}>
+                        // <li key={ing.id}>
                             <Link to={{
                                 pathname: `/product/${ing.id}`,
                                 state: {
-                                    productId: ing.id,
-                                    recipeId: recipe.id
+                                    ingredient: { ...ing }
                                 }
-                            }}>
-                            {ing.original}</Link> 
-                            <img src={ingrdientImageUrl + ing.image} alt="ingredient"/>
-                        </li>
+                            }} key={ing.id}>
+                            {ing.original}
+                            <img src={ingrdientImageUrl + ing.image} alt="ingredient" />
+                            </Link> 
+                        // </li>
                     )}
                 </ul>
             </div>
@@ -141,4 +142,4 @@ class Details extends React.Component {
     
 }
 
-export default Details;
+export default RecipeDetails;
