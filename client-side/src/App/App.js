@@ -8,10 +8,10 @@ import Logout from '../Logout/Logout';
 
 import Home from '../Home/Home';
 
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import withAuth from '../shared/withAuth/withAuth';
-import Details from '../shared/SearchBar/Recipe/Details/Details';
+import RecipeDetails from '../shared/SearchBar/Recipe/RecipeDetails/RecipeDetails';
 import ProductDetails from '../shared/SearchBar/Recipe/ProductDetails/ProductDetails';
 import AdvancedSearch from '../AdvancedSearch/AdvancedSearch';
 import RandomRecipies from '../RandomRecipies/RandomRecipies';
@@ -40,8 +40,8 @@ function App() {
         <Route path='/advanced-search' component={withAuth(AdvancedSearch)} />
         <Route path='/random-recipies' component={withAuth(RandomRecipies)} />
         {/* <Route path='/my-recipies' component={withAuth(MyRecipies)} /> */}
-        <Route path='/recipe/:id' component={withAuth(Details)} />
-        <Route path='/product/:product_id' component={withAuth(ProductDetails)}/>
+        <Route path='/recipe/:id' component={withAuth(RecipeDetails)} />
+        <Route path='/product/:id' component={withAuth(ProductDetails)}/>
       </Switch>
     </div>
     </BrowserRouter>

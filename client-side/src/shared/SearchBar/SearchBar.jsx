@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-import Recipe from './Recipe/Recipe';
+import RecipeCard from './Recipe/RecipeCard/RecipeCard';
 import Loader from '../Loader/Loader';
 import recipeSearchService from '../../services/recipe-search-service';
 
@@ -49,7 +49,7 @@ class SearchBar extends React.Component {
   renderSearchResult = () => {
     const { result } = this.state;
     if (Object.keys(result).length) {
-      return (result.map(result => <Recipe key={result.id} recipe={result}/>))
+      return (result.map(result => <RecipeCard key={result.id} recipe={result}/>))
     }
   }
 
