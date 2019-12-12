@@ -15,6 +15,8 @@ import RecipeDetails from '../shared/SearchBar/Recipe/RecipeDetails/RecipeDetail
 import ProductDetails from '../shared/SearchBar/Recipe/ProductDetails/ProductDetails';
 import AdvancedSearch from '../AdvancedSearch/AdvancedSearch';
 import RandomRecipies from '../RandomRecipies/RandomRecipies';
+import MealPlan from '../MealPlan/MealPlan';
+import Diets from '../MealPlan/Diets/Diets';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -39,6 +41,8 @@ function App() {
         <Route path='/logout' render={(props) => <Logout {...{ setLoggedIn, ...props }} /> } />
         <Route path='/advanced-search' component={withAuth(AdvancedSearch)} />
         <Route path='/random-recipies' component={withAuth(RandomRecipies)} />
+        <Route path='/meal-plan' component={withAuth(MealPlan)} />
+        <Route path='/diets' component={withAuth(Diets)} />
         {/* <Route path='/my-recipies' component={withAuth(MyRecipies)} /> */}
         <Route path='/recipe/:id' component={withAuth(RecipeDetails)} />
         <Route path='/product/:id' component={withAuth(ProductDetails)}/>
