@@ -21,7 +21,7 @@ class RecipeDetails extends React.Component {
             .then(res => this.setState({
                 recipe: res,
                 loading: false
-            }));
+        }));
     }
 
     render() {
@@ -110,7 +110,6 @@ class RecipeDetails extends React.Component {
                 <ul className="data" id="ingredients">
                     {console.log(recipe.extendedIngredients)}
                     {recipe.extendedIngredients.map(ing => 
-                        // <li key={ing.id}>
                             <Link to={{
                                 pathname: `/product/${ing.id}`,
                                 state: {
@@ -120,7 +119,6 @@ class RecipeDetails extends React.Component {
                             {ing.original}
                             <img src={ingrdientImageUrl + ing.image} alt="ingredient" />
                             </Link> 
-                        // </li>
                     )}
                 </ul>
             </div>

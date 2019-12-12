@@ -10,7 +10,14 @@ function Recipe(recipe) {
     return <div className="card">
             <img src={imageUrl} alt="recipe"/>
             <h2>{recipe.title}</h2>
-            {recipe.readyInMinutes !== undefined ? <p>Ready in: {recipe.readyInMinutes} minutes</p> : <p>{recipe.nutrient}: {recipe[recipe.nutrient.toLowerCase()]}</p>}
+            {recipe.readyInMinutes !== undefined ? 
+                <p>Ready in: {recipe.readyInMinutes} minutes</p> : 
+                <React.Fragment>
+                    {recipe[recipe.nutrient.toLowerCase()] === undefined ? '' :
+                     <p>{recipe.nutrient}: {recipe[recipe.nutrient.toLowerCase()]}</p>
+                    }
+                </React.Fragment>
+               }
             <Link to={{
                     pathname: `/recipe/${recipe.id}`,
                     state: { 

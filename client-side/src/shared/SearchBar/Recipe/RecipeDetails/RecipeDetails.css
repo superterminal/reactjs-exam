@@ -15,15 +15,10 @@
     list-style: none;
 }
 
-#recipe > ul > li {
-    
-    float: left;
-    padding: 2em;
-    text-align: center;
-}
-
 #ingredients {
     display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     list-style: none;
 }
 
