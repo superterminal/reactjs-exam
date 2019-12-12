@@ -14,6 +14,7 @@ import withAuth from '../shared/withAuth/withAuth';
 import Details from '../shared/SearchBar/Recipe/Details/Details';
 import ProductDetails from '../shared/SearchBar/Recipe/ProductDetails/ProductDetails';
 import AdvancedSearch from '../AdvancedSearch/AdvancedSearch';
+import RandomRecipies from '../RandomRecipies/RandomRecipies';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -37,6 +38,7 @@ function App() {
         <Route path='/register' component={Register} />
         <Route path='/logout' render={(props) => <Logout {...{ setLoggedIn, ...props }} /> } />
         <Route path='/advanced-search' component={withAuth(AdvancedSearch)} />
+        <Route path='/random-recipies' component={withAuth(RandomRecipies)} />
         {/* <Route path='/my-recipies' component={withAuth(MyRecipies)} /> */}
         <Route path='/recipe/:id' component={withAuth(Details)} />
         <Route path='/product/:product_id' component={withAuth(ProductDetails)}/>
