@@ -1,0 +1,8 @@
+.container {
+    padding-top: 7em;
+    text-align: center;
+}
+
+.container > h5, .container > p {
+    text-align: left;
+}
