@@ -2,7 +2,7 @@ import React from 'react';
 import './RandomRecipies.css';
 
 import recipeSearchService from '../services/recipe-search-service';
-import Recipe from '../shared/SearchBar/Recipe/Recipe';
+import RecipeCard from '../shared/SearchBar/Recipe/RecipeCard/RecipeCard';
 
 import Loader from '../shared/Loader/Loader';
 
@@ -16,20 +16,22 @@ class RandomRecipies extends React.Component {
     }
 
     componentDidMount() {
-        recipeSearchService.getRandomRecipies()
+        setTimeout(() => {
+            recipeSearchService.getRandomRecipies()
             .then(res => {
                 this.setState({
                     recipies: res,
                     loading: false
                 });
             });
+        }, 1000);
     }
 
     renderSearchResult = () => {
         const { recipies } = this.state;
         let results = recipies.recipes;
         if (Object.keys(results).length) {
-          return (results.map(result => <Recipe key={result.id} image={result.image} title={result.title} recipe_id={result.id}/>))
+          return (results.map(result => <RecipeCard key={result.id}  recipe={result} />))
         }
       }
 
