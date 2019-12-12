@@ -1,6 +1,6 @@
 import React from 'react';
 import './AdvancedSearchBar.css';
-import Recipe from '../../shared/SearchBar/Recipe/Recipe';
+import RecipeCard from '../../shared/SearchBar/Recipe/RecipeCard/RecipeCard';
 import Loader from '../../shared/Loader/Loader';
 import recipeSearchService from '../../services/recipe-search-service';
 
@@ -57,7 +57,7 @@ class AdvancedSearchBar extends React.Component {
     e.preventDefault();
     let query = this.state.query;
     let { searchBy } = this.state;
-    if (searchBy == 'nutrients') {
+    if (searchBy === 'nutrients') {
       let { nutrient, min, max } = this.state;
       if (min > 0 && max > 0 && max < 101) {
         this.setState({nutrient, min, max, loading: true}, () => {
@@ -82,9 +82,9 @@ class AdvancedSearchBar extends React.Component {
   }
   
   renderSearchResult = () => {
-    const { result } = this.state;
+    let { result } = this.state;
     if (Object.keys(result).length) {
-      return (result.map(result => <Recipe key={result.id} image={result.image !== null ? result.image : undefined} title={result.title !== null ? result.title : undefined} recipe_id={result.id}/>))
+      return (result.map(result => <RecipeCard key={result.id} recipe={{...result, nutrient: this.state.nutrient}} />))
     }
   }
 
