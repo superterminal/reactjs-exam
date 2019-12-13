@@ -1,0 +1,16 @@
+h4, h2 {
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+h5 {
+    padding: 0.7em;
+    text-align: center;
+}
+
+.video {
+    float: left;
+    padding: 1.5em;
+    text-align: center;
+}
+
