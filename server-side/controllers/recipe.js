@@ -28,12 +28,13 @@ module.exports = {
             }).catch(next);
     },
     delete: (req, res, next) => {
-        const comicId = req.params.id;
-        const userId = req.user;
-        models.Recipe.findOneAndDelete({ comicId, user: userId })
+        const recipeId = req.params.id;
+        const userId = req.user._id;
+        models.Recipe.findOneAndDelete({ recipeId, user: userId })
             .then(deletedRecipe => {
                 models.User
                     .updateOne({ _id: userId }, { $pull: { recipeCollection: deletedRecipe._id }})
+                    .then(res => console.log('pls work'))
                     .catch(err => console.error(err));
                 res.send(deletedRecipe);
             }).catch(next);
