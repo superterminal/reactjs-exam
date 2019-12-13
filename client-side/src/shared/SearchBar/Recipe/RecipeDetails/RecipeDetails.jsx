@@ -2,6 +2,8 @@ import React from 'react'
 import './RecipeDetails.css';
 
 import recipeSearchService from '../../../../services/recipe-search-service';
+import AddButton from '../../../AddButton/AddButton';
+
 import Loader from '../../../Loader/Loader';
 import Link from '../../../Link/Link';
 
@@ -103,6 +105,7 @@ class RecipeDetails extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <AddButton recipeId={recipe.id} name={recipe.title} />
                     <hr/>
                     </div>
             </div>
