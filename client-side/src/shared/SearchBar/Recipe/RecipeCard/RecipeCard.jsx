@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Recipe(recipe) {
     recipe = recipe.recipe;
+    console.log(recipe);
     let imageUrl = !recipe.image.includes('spoonacular') ? 'https://spoonacular.com/recipeImages/' + recipe.image  : recipe.image;
     
     return <div className="card">
