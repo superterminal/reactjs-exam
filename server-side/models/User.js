@@ -19,7 +19,7 @@ const userSchema = new Schema({
         require: true
     },
 
-    posts: [{ type: ObjectId, ref: "Origami" }]
+    recipeCollection: [{ type: ObjectId, ref: "Recipe" }]
 
 });
 
