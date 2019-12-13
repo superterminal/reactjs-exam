@@ -5,3 +5,12 @@
 .targetCalories, .excludeProducts {
     width: 200px;
 }
+
+.recipies {
+    text-align: center;
+}
+
+.recipies > h5 {
+    padding-top: 2em;
+    width:100%;
+}

@@ -4,6 +4,7 @@ import './MealPlanSearchBar.css';
 import { Link } from 'react-router-dom';
 import Loader from '../../shared/Loader/Loader';
 import RecipeCard from '../../shared/SearchBar/Recipe/RecipeCard/RecipeCard';
+import WeekPlan from '../WeekPlan/WeekPlan';
 
 import recipeSearchService from '../../services/recipe-search-service';
 
@@ -11,6 +12,8 @@ class MealPlanSearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            result: {},
+            nutrients: {},
             mealPlan: 'Week',
             targetCalories: 0,
             diet: '',
@@ -52,10 +55,26 @@ class MealPlanSearchBar extends React.Component {
             recipeSearchService.generateMealPlan(this.state).then(res => {
               res.length === 0 ? 
                 this.setState({ result: {}, message: 'The recipe was not found', loading: false }) 
-                : this.setState({ result: res, loading: false });
+                : this.setState({ result: res, nutrients: { ...res.nutrients }, loading: false });
             }).catch(err => console.error(err));
           });
     }
+
+    renderSearchResult = () => {
+        let { result } = this.state;
+        if (Object.keys(result).length) {
+            if (this.state.mealPlan === 'day') {
+                return (
+                    result.meals.map(result => <RecipeCard key={result.id} recipe={{ ...result }} />)
+                )
+            } else {
+                return (
+                    result.items.map(item => <WeekPlan key={JSON.parse(item.value).id} recipe={ item } />
+                ));
+            }
+        }
+        
+      }
 
     render() {
         console.log(this.state);
@@ -100,6 +119,14 @@ class MealPlanSearchBar extends React.Component {
                         Get my recipe!
                      </button>
                 </form>
+                {this.state.loading ? <Loader /> : <div className="recipies">
+                    {Object.keys(this.state.nutrients).length !== 0 ? <h5>
+                        Calories: {this.state.nutrients.calories}g,
+                        Protein: {this.state.nutrients.protein}g,
+                        Fat: {this.state.nutrients.fat}g,
+                        Carbohydrates: {this.state.nutrients.carbohydrates}g</h5> : null}
+                    {this.renderSearchResult()} 
+                </div>}
             </div>
         )
     }
