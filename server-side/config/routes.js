@@ -5,6 +5,8 @@ module.exports = (app) => {
 
     app.use('/api/user', router.user);
 
+    app.use('/api/recipe', router.recipe);
+
     app.get('/auth', withAuth, function(req, res) {
         res.sendStatus(200);
     })
