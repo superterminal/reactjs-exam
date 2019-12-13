@@ -23,7 +23,7 @@ module.exports = {
         .then((user) => !!user ? Promise.all([user, user.matchPassword(password)]) : [null, false])
         .then(([user, match]) => {
           if (!match) {
-            res.status(401).send('Invalid username or password');
+            res.status(401).send('Wrong username or password!');
             return;
           }
 
@@ -35,9 +35,9 @@ module.exports = {
 
     logout: (req, res, next) => {
       const token = req.cookies[config.authCookieName];
-      console.log('-'.repeat(100));
-      console.log(token);
-      console.log('-'.repeat(100));
+      // console.log('-'.repeat(100));
+      // console.log(token);
+      // console.log('-'.repeat(100));
       models.TokenBlacklist.create({ token })
         .then(() => {
           res.clearCookie(config.authCookieName).send('Logout successfully!');
