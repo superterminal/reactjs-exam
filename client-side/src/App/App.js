@@ -17,6 +17,7 @@ import AdvancedSearch from '../AdvancedSearch/AdvancedSearch';
 import RandomRecipies from '../RandomRecipies/RandomRecipies';
 import MealPlan from '../MealPlan/MealPlan';
 import Diets from '../MealPlan/Diets/Diets';
+import Videos from '../Videos/Videos';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -42,6 +43,7 @@ function App() {
         <Route path='/advanced-search' component={withAuth(AdvancedSearch)} />
         <Route path='/random-recipies' component={withAuth(RandomRecipies)} />
         <Route path='/meal-plan' component={withAuth(MealPlan)} />
+        <Route path='/videos' component={withAuth(Videos)} />
         <Route path='/diets' component={withAuth(Diets)} />
         {/* <Route path='/my-recipies' component={withAuth(MyRecipies)} /> */}
         <Route path='/recipe/:id' component={withAuth(RecipeDetails)} />
