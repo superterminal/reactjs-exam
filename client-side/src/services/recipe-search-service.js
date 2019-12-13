@@ -48,10 +48,10 @@ const recipeSearchService = {
         }).then(res => res.json());
       },
       generateMealPlan: function(params) {
+
         let baseUrl = 'https://api.spoonacular.com/recipes/mealplans/generate?';
         let { mealPlan, targetCalories, diet, excludeProducts } = params;
-        baseUrl = baseUrl + 'timeFrame=' + (mealPlan === 'Day' ? 'day' : 'week');
-        console.log(baseUrl) ;
+        baseUrl = baseUrl + 'timeFrame=' + (mealPlan === 'day' ? 'day' : 'week');
         if (targetCalories !== 0) {
           baseUrl += '&targetCalories=' + targetCalories;
         }
@@ -62,13 +62,18 @@ const recipeSearchService = {
           baseUrl += '&exclude=' + excludeProducts;
         }
       
-        console.log(baseUrl)
         return fetch(`${baseUrl}&apiKey=${apiKey}`, {
           method: 'GET',
           headers: {
             'Content-type': 'application/json'
           }
         }).then(res => res.json());
+      },
+      getRecipeImageById: function(id) {
+        return fetch(`https://spoonacular.com/recipeImages/${id}-556x370.jpg?apiKey=${apiKey}`, {
+          method: 'GET',
+        }).then(res => res.blob())
+          .then(image => image = URL.createObjectURL(image));
       }
   };
   
