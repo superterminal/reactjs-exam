@@ -14,6 +14,7 @@ class Register extends React.Component {
             usernameErr: '',
             passwordErr: '',
             rePasswordErr: '',
+            message: '',
             isValid: false
         };
     }
@@ -94,8 +95,7 @@ class Register extends React.Component {
                     this.props.history.push('/login');
                 } else {
                     const error = new Error(res.error);
-                    // handle user already exists
-                    console.log(error);
+                    this.setState({ message: 'User alredy exists! '});
                 }
             }).catch(err => {
                 console.log(err);
@@ -111,6 +111,7 @@ class Register extends React.Component {
                 <form className="form-signin" onSubmit={this.onSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal">Register here!</h1>
                     {this.state.usernameErr}
+                    {this.state.message !== '' ? <p>{this.state.message}</p> : null}
                     <label htmlFor="inputEmail" className="sr-only">Username</label>
                     <input 
                         type="text"
