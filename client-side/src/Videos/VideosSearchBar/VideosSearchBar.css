@@ -1,4 +1,4 @@
-h4, h2 {
+h4, h2, p {
     text-align: center;
     padding-bottom: 0.5em;
 }
@@ -14,3 +14,9 @@ h5 {
     text-align: center;
 }
 
+.renderVideos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
+}

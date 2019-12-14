@@ -5,7 +5,7 @@ import VideosSearchBar from './VideosSearchBar/VideosSearchBar';
 
 function Videos() {
     return (
-        <div>
+        <div className="videos">
             <VideosSearchBar />
         </div>
     )

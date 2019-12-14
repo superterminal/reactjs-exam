@@ -54,19 +54,19 @@ class VideosSearchBar extends React.Component {
         return (
             <div>
                 <h4>Search food videos!</h4>
-                <h5>Did you know that: {<FoodJokeOrTrivia opt={"trivia"} />}</h5>
+                <p>Did you know that: {<FoodJokeOrTrivia opt={"trivia"} />}</p>
                 <form className="search" onSubmit={this.submitVideoSearch}>
                     <input type="text" className="searchTerm" placeholder="What are you looking for?, eg. pumpkin, pasta" onChange={this.queryChangeHandler}/>
-                    <button type="submit" className="searchButton">
-                        Find videos
-                    </button>
+                    {this.state.query === '' ? <h4>Please enter query</h4> : 
+                        <button type="submit" className="searchButton">
+                            Find videos
+                        </button>}
                 </form>
                 {this.state.message ? <h2>{this.state.message}</h2> : null}
                 {this.state.loading ? <Loader /> : 
-                    <div className="videos"> 
+                    <div className="renderVideos"> 
                         {this.renderSearchResult()}
                     </div>}
-                {/* <YouTube videoId={'9k3UaPZEIg8'} opts={{height: '250',width: '500'}} /> */}
             </div>
         )
     }
