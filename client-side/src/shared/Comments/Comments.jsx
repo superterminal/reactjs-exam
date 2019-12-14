@@ -1,43 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './Comments.css';
 
 import commentService from '../../services/comment-service';
 import Loader from '../Loader/Loader';
+import RenderComment from '../RenderComment/RenderComment';
 
-class Comments extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            result: {},
-            loading: false
-        }
-    }
 
-    componentDidMount() {
-        this.setState({ loading: true }, () => {
-            commentService.getAllComments(this.props.recipeId)
-                .then(res => {
-                    this.setState({
-                        result: res,
-                        loading: false
-                    });
-                }).catch(err => console.log(err));
-        })
-    }
+function Comments(props) {
+    const [comments, setComments] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    renderSearchResult = () => {
-        const { result } = this.state; // check for message?
-        if (Object.keys(result).length) {
-            console.log(result[0].comment);
-        }
-    }
+    useEffect(() => {
+        commentService.getAllComments(props.recipeId)
+            .then(res => {
+                setComments(res);
+                setLoading(false);
+            }).catch(err => console.log(err));
+    });
 
-    render() {
-        return (
-            <div>
-                {this.state.loading ? <Loader /> : this.renderSearchResult()}
+    const renderSearchResult = () => {
+        if (Object.keys(comments).length) {
+            return <div className="comments">
+                <h2>All comments for this recipe: </h2>
+                {comments.map(comment => <RenderComment key={comment._id} comment={{...comment}} />)}
             </div>
-        )
+        } else {
+            return <h2>No comments yet :/</h2>
+        }
     }
+
+    return (
+        <div>
+            {loading? <Loader /> : renderSearchResult()}
+        </div>
+    )
 }
 
 export default Comments;
