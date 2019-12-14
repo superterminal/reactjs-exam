@@ -19,6 +19,7 @@ import MealPlan from '../MealPlan/MealPlan';
 import Diets from '../MealPlan/Diets/Diets';
 import Videos from '../Videos/Videos';
 import MyRecipies from '../MyRecipies/MyRecipies';
+import PageNotExists from './PageNotExists/PageNotExists';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -49,6 +50,7 @@ function App() {
         <Route path='/my-recipies' component={withAuth(MyRecipies)} />
         <Route path='/recipe/:id' component={withAuth(RecipeDetails)} />
         <Route path='/product/:id' component={withAuth(ProductDetails)}/>
+        <Route path="*" component={PageNotExists}/>
       </Switch>
     </div>
     </BrowserRouter>
