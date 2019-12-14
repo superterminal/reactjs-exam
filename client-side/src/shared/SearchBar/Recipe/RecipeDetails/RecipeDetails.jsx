@@ -4,6 +4,8 @@ import './RecipeDetails.css';
 import recipeSearchService from '../../../../services/recipe-search-service';
 import AddButton from '../../../AddButton/AddButton';
 
+import Comment from '../../../Comment/Comment';
+import Comments from '../../../Comments/Comments';
 import Loader from '../../../Loader/Loader';
 import Link from '../../../Link/Link';
 
@@ -137,6 +139,8 @@ class RecipeDetails extends React.Component {
                         <p>{step.step}</p>
                 </div>) : <h3>No steps available :/</h3>}
             </div>
+            <Comment recipeId={recipe.id}/>
+            <Comments recipeId={recipe.id}/>
         </div>
         }
     }

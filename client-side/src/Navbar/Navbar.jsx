@@ -5,11 +5,11 @@ import Link from '../shared/Link/Link';
 function Navbar({ loggedIn }) {
     return (
       <nav className="nav">
-        <Link to="/" className="">food.io</Link>
+        <Link to="/" className="logo">food.io</Link>
           <ul className="nav-links">
             {!loggedIn && <Link to="/login">Login</Link>}
             {!loggedIn && <Link to="/register">Register</Link>}
-            {loggedIn && <Link to="/meal-plan">Youtube videos & food trivia & food jokes</Link>}
+            {loggedIn && <Link to="/videos">Search for food videos</Link>}
             {loggedIn && <Link to="/meal-plan">Generate meal plan</Link>}
             {loggedIn && <Link to="/random-recipies">Get random recipies</Link>}
             {loggedIn && <Link to="/my-recipies">My Recipies</Link>}

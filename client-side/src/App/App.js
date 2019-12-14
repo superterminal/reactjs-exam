@@ -18,6 +18,7 @@ import RandomRecipies from '../RandomRecipies/RandomRecipies';
 import MealPlan from '../MealPlan/MealPlan';
 import Diets from '../MealPlan/Diets/Diets';
 import Videos from '../Videos/Videos';
+import MyRecipies from '../MyRecipies/MyRecipies';
 
 function parseCookies() {
   return document.cookie.split('; ').reduce((acc, cookie) => {
@@ -45,7 +46,7 @@ function App() {
         <Route path='/meal-plan' component={withAuth(MealPlan)} />
         <Route path='/videos' component={withAuth(Videos)} />
         <Route path='/diets' component={withAuth(Diets)} />
-        {/* <Route path='/my-recipies' component={withAuth(MyRecipies)} /> */}
+        <Route path='/my-recipies' component={withAuth(MyRecipies)} />
         <Route path='/recipe/:id' component={withAuth(RecipeDetails)} />
         <Route path='/product/:id' component={withAuth(ProductDetails)}/>
       </Switch>
