@@ -42,6 +42,7 @@ class Login extends React.Component {
     render() {
         return (
             <div className="text-center">
+                {this.props.location.message ? <h2 className="error">{this.props.location.message}</h2> : ''}
                 <form className="form-signin" onSubmit={this.onSubmit}>
                     <h1 className="h3 mb-3 font-weight-normal">Log in here</h1>
                     {this.state.error}
