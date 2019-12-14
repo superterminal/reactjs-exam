@@ -14,14 +14,17 @@ class RecipeDetails extends React.Component {
     constructor(props) {
         super(props);
         this.recipe = this.props.location.state.recipe;
+        this.recipeId = this.props.location.state.recipeId;
         this.state = {
             recipe: {},
             loading: true,
+            comments: {}
         };
     }
 
     componentDidMount() {
-        recipeSearchService.findRecipeById(this.recipe.id)
+        let id = this.recipe === undefined ? this.recipeId : this.recipe.id;
+        recipeSearchService.findRecipeById(id)
             .then(res => this.setState({
                 recipe: res,
                 loading: false
@@ -95,7 +98,7 @@ class RecipeDetails extends React.Component {
                                 <p className="title">Diets:</p>
                             </div>
                             <div className="col-md-6">
-                                <p className="data">{recipe.diets.length !== 0 ? recipe.diets.join(' | ') : 'This recipe has no diet'}</p>
+                                <p className="data">{recipe.diets.length ? recipe.diets.join(' | ') : 'This recipe has no diet'}</p>
                             </div>
                         </div>
                         <div className='row'>
@@ -103,7 +106,7 @@ class RecipeDetails extends React.Component {
                                 <p className="title">Cuisines:</p>
                             </div>
                             <div className="col-md-6">
-                                <p className="data">{recipe.cuisines.length !== 0 ? recipe.cuisines.join(' | ') : 'This recipe has no cuisines'}</p>
+                                <p className="data">{recipe.cuisines.length ? recipe.cuisines.join(' | ') : 'This recipe has no cuisines'}</p>
                             </div>
                         </div>
                     </div>
