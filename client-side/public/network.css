@@ -1,0 +1,15 @@
+#status {
+    position: fixed;
+    width: 100%;
+    font: bold 1em sans-serif;
+    color: #FFF;
+    padding: 0.5em;
+}
+
+.online {
+    background: green;
+}
+  
+.offline {
+    background: red;
+}
