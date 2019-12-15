@@ -145,7 +145,7 @@ class Register extends React.Component {
                         required
                          />
                     <button className={!this.state.usernameErr && !this.state.passwordErr && !this.state.rePasswordErr ? "btn btn-lg btn-primary btn-block" : "btn btn-lg btn-secondary btn-block"} type="submit">Register</button>
-                    <p className="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+                    <p className="mt-5 mb-3 text-muted">&copy; 2019</p>
                 </form>
             </div>
         );
