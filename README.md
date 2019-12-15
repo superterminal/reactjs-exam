@@ -28,6 +28,13 @@ npm start
 
 in client side
 
+## Built With
+
+* [React](https://reactjs.org/)
+* [Node.js](https://nodejs.org//)
+* [Express](https://expressjs.com/)
+* [Spoonacular food API](https://spoonacular.com/food-api/docs)
+
 ### Recap
 
 Food recipe and meal planner app for React SoftUni!
