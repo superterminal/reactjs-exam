@@ -1,29 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './FoodJokeOrTrivia.css';
 
 import foodService from '../../services/food-service';
 
-class FoodJokeOrTrivia extends React.Component {
+function FoodJokeOrTrivia(props) {
+    const [joke, setJoke] = useState('');
+    const [loading, setLoading] = useState(true);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            joke: '',
-            loading: true
-        };
-    }
+    useEffect(() => {
+        foodService.foodJokeOrTrivia(props.opt)
+            .then(res => {
+                setJoke(res.text);
+                setLoading(false);
+            })
+            .catch(err => console.log(err));
+    }, []);
 
-    componentDidMount() {
-        this.setState({ loading: true}, () => {
-            foodService.foodJokeOrTrivia(this.props.opt)
-                .then(res => this.setState({ joke: res.text, loading: false }))
-                .catch(err => console.log(err));
-        })
-    }
-
-    render() {
-        return this.state.loading ? <div>Loading joke hehe...</div> : <h5>{this.state.joke}</h5>;
-    }
+    return loading ? <div>Loading joke hehe...</div> : <h5>{joke}</h5>;
 }
 
 export default FoodJokeOrTrivia;

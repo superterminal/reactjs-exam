@@ -15,23 +15,19 @@ function Comments(props) {
             .then(res => {
                 setComments(res);
                 setLoading(false);
-            }).catch(err => console.log(err));
-    });
+        }).catch(err => console.log(err)); 
+    }, [props.recipeId]);
 
     const renderSearchResult = () => {
-        if (Object.keys(comments).length) {
-            return <div className="comments">
-                <h2>All comments for this recipe: </h2>
-                {comments.map(comment => <RenderComment key={comment._id} comment={{...comment}} />)}
-            </div>
-        } else {
-            return <h2>No comments yet :/</h2>
-        }
+        return <div className="comments">
+            {/* <h2>All comments for this recipe: </h2> */}
+            {comments.map(comment => <RenderComment key={comment._id} comment={{...comment}} />)}
+        </div>
     }
 
     return (
         <div>
-            {loading? <Loader /> : renderSearchResult()}
+            {loading ? <Loader /> : renderSearchResult()}
         </div>
     )
 }
