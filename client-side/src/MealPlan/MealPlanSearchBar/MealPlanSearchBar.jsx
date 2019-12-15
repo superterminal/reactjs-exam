@@ -61,11 +61,11 @@ class MealPlanSearchBar extends React.Component {
     }
 
     renderSearchResult = () => {
-        let { result } = this.state;
+        const { result } = this.state;
         if (Object.keys(result).length) {
             if (this.state.mealPlan === 'day') {
                 return (
-                    result.meals.map(result => <RecipeCard key={result.id} recipe={{ ...result }} />)
+                    result.meals.map(result => <RecipeCard key={result.id} recipe={{ ...result }} />)                    
                 )
             } else {
                 return (
@@ -73,7 +73,6 @@ class MealPlanSearchBar extends React.Component {
                 ));
             }
         }
-        
       }
 
     render() {

@@ -2,7 +2,6 @@ import React from 'react';
 import './WeekPlan.css';
 
 import { Link } from 'react-router-dom';
-import RecipeService from '../../services/recipe-search-service';
 import recipeSearchService from '../../services/recipe-search-service';
 
 class WeekPlan extends React.Component {
