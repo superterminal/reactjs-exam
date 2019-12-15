@@ -5,7 +5,7 @@ import Link from '../shared/Link/Link';
 function Navbar({ loggedIn }) {
     return (
       <nav className="nav">
-        <Link to="/" className="logo">food.io</Link>
+        <Link to="/">food.io</Link>
           <ul className="nav-links">
             {!loggedIn && <Link to="/login">Login</Link>}
             {!loggedIn && <Link to="/register">Register</Link>}
