@@ -20,7 +20,6 @@ const collectionService = {
         .catch(err => console.error(err));
     },
     addToCollection: function (recipe) {
-        console.log(recipe)
         return fetch('http://localhost:9999/api/recipe', {
             method: 'POST',
             body: JSON.stringify(recipe),

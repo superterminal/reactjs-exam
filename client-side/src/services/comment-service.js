@@ -20,7 +20,6 @@ const commentService = {
         .catch(err => console.error(err));
     },
     addComment: function (comment) {
-        console.log(comment)
         return fetch('http://localhost:9999/api/comment', {
             method: 'POST',
             body: JSON.stringify(comment),
@@ -32,7 +31,6 @@ const commentService = {
         .catch(err => console.error(err));
     },
     editComment: function (comment, id) {
-        console.log(comment)
         return fetch(`http://localhost:9999/api/comment/${id}`, {
             method: 'PUT',
             body: JSON.stringify(comment),

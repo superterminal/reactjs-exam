@@ -14,7 +14,7 @@ class MealPlanSearchBar extends React.Component {
         this.state = {
             result: {},
             nutrients: {},
-            mealPlan: 'Week',
+            mealPlan: 'week',
             targetCalories: 0,
             diet: '',
             excludeProducts: '',
@@ -76,7 +76,6 @@ class MealPlanSearchBar extends React.Component {
       }
 
     render() {
-        console.log(this.state);
         return (
             <div className="plan">
                 <form className="mealPlanSearch" onSubmit={this.submitSearch}>

@@ -29,7 +29,6 @@ function MyRecipies() {
                         <AddButton recipeId={recipe.recipeId} />
             </div>
         })) : <h2>Your recipe list is empty :/</h2>}
-        {}
     </div>
 }
 

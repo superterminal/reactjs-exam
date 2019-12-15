@@ -39,6 +39,7 @@ function App() {
       <Navbar {...{ loggedIn }}/>
       <Switch>
         <Route exact path="/" component={Home}/>
+        <Route path="/home" component={Home}/>
         <Route path='/login' render={(props) => <Login {...{ setLoggedIn, ...props }} /> } />
         <Route path='/register' component={Register} />
         <Route path='/logout' render={(props) => <Logout {...{ setLoggedIn, ...props }} /> } />
